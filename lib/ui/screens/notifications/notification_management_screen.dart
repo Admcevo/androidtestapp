@@ -187,7 +187,7 @@ class _NotificationManagementScreenState extends State<NotificationManagementScr
                               : null,
                         ),
                       );
-                    }).toList(),
+                    }),
                 ],
               ),
             ),

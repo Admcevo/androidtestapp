@@ -6,7 +6,7 @@ import '../core/config/app_config.dart';
 class NotificationViewModel extends ChangeNotifier {
   bool _isLoading = false;
   List<NotificationModel> _notifications = [];
-  Map<String, bool> _categoryFilters = {};
+  final Map<String, bool> _categoryFilters = {};
   NotificationStats? _stats;
   
   bool get isLoading => _isLoading;

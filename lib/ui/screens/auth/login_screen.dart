@@ -64,6 +64,36 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                // Demo Mode Banner
+                Container(
+                  padding: const EdgeInsets.all(ThemeConfig.spacingMedium),
+                  decoration: BoxDecoration(
+                    color: ThemeConfig.primaryPurple.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(ThemeConfig.borderRadiusMedium),
+                    border: Border.all(
+                      color: ThemeConfig.primaryPurple.withOpacity(0.3),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.info_outline,
+                        color: ThemeConfig.primaryPurple,
+                        size: 20,
+                      ),
+                      const SizedBox(width: ThemeConfig.spacingSmall),
+                      Expanded(
+                        child: Text(
+                          'Demo Mode: Use demo@example.com / demo123',
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            color: ThemeConfig.primaryPurple,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                
                 const SizedBox(height: ThemeConfig.spacingXLarge),
                 
                 // Logo

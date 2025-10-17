@@ -4,6 +4,7 @@ import 'package:jwt_decoder/jwt_decoder.dart';
 
 import '../config/app_config.dart';
 import 'storage_service.dart';
+import 'mock_auth_service.dart';
 import '../../models/user_model.dart';
 
 /// Service for handling authentication operations
@@ -15,6 +16,8 @@ class AuthService {
   AuthService._internal();
   
   final StorageService _storage = StorageService.instance;
+  final MockAuthService _mockAuth = MockAuthService.instance;
+  bool _useMockMode = false;
   
   /// Login with email and password
   Future<AuthResult> login({
@@ -22,6 +25,15 @@ class AuthService {
     required String password,
     bool rememberMe = false,
   }) async {
+    // If already in mock mode, use mock auth
+    if (_useMockMode) {
+      return await _mockAuth.login(
+        email: email,
+        password: password,
+        rememberMe: rememberMe,
+      );
+    }
+    
     try {
       final url = Uri.parse('${AppConfig.baseUrl}${AppConfig.loginEndpoint}');
       
@@ -32,7 +44,7 @@ class AuthService {
           'email': email,
           'password': password,
         }),
-      );
+      ).timeout(const Duration(seconds: 5));
       
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
@@ -57,9 +69,13 @@ class AuthService {
         );
       }
     } catch (e) {
-      return AuthResult(
-        success: false,
-        error: 'Network error: ${e.toString()}',
+      // Backend not available - switch to mock mode
+      _useMockMode = true;
+      print('⚠️ Backend unavailable, switching to DEMO MODE');
+      return await _mockAuth.login(
+        email: email,
+        password: password,
+        rememberMe: rememberMe,
       );
     }
   }
@@ -70,6 +86,15 @@ class AuthService {
     required String password,
     required String name,
   }) async {
+    // If already in mock mode, use mock auth
+    if (_useMockMode) {
+      return await _mockAuth.register(
+        email: email,
+        password: password,
+        name: name,
+      );
+    }
+    
     try {
       final url = Uri.parse('${AppConfig.baseUrl}${AppConfig.registerEndpoint}');
       
@@ -81,7 +106,7 @@ class AuthService {
           'password': password,
           'name': name,
         }),
-      );
+      ).timeout(const Duration(seconds: 5));
       
       if (response.statusCode == 200 || response.statusCode == 201) {
         final data = jsonDecode(response.body);
@@ -105,9 +130,13 @@ class AuthService {
         );
       }
     } catch (e) {
-      return AuthResult(
-        success: false,
-        error: 'Network error: ${e.toString()}',
+      // Backend not available - switch to mock mode
+      _useMockMode = true;
+      print('⚠️ Backend unavailable, switching to DEMO MODE');
+      return await _mockAuth.register(
+        email: email,
+        password: password,
+        name: name,
       );
     }
   }

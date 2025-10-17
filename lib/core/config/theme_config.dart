@@ -73,7 +73,7 @@ class ThemeConfig {
           color: primaryText,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: cardBackground,
         elevation: 2,
         shadowColor: primaryPurple.withOpacity(0.1),
@@ -160,7 +160,7 @@ class ThemeConfig {
           color: darkPrimaryText,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: darkCardBackground,
         elevation: 2,
         shadowColor: Colors.black.withOpacity(0.3),

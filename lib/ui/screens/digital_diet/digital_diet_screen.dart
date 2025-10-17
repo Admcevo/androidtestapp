@@ -133,7 +133,7 @@ class _DigitalDietScreenState extends State<DigitalDietScreen> {
                           },
                         ),
                       );
-                    }).toList(),
+                    }),
                 ],
               ),
             ),
@@ -337,7 +337,7 @@ class _DigitalDietScreenState extends State<DigitalDietScreen> {
                 topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
                 rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
               ),
-              gridData: FlGridData(
+              gridData: const FlGridData(
                 show: true,
                 drawVerticalLine: false,
                 horizontalInterval: 60,

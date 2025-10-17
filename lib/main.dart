@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'core/config/app_config.dart';
 import 'core/config/theme_config.dart';
 import 'core/routes/app_router.dart';
 import 'core/services/storage_service.dart';
-import 'core/services/auth_service.dart';
 import 'core/services/notification_service.dart';
 import 'viewmodels/auth_viewmodel.dart';
 import 'viewmodels/theme_viewmodel.dart';

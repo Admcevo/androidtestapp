@@ -5,7 +5,6 @@ import '../../../core/config/theme_config.dart';
 import '../../../core/config/app_config.dart';
 import '../../../core/services/storage_service.dart';
 import '../../../viewmodels/theme_viewmodel.dart';
-import '../../widgets/custom_text_field.dart';
 
 /// Settings screen for app configuration
 class SettingsScreen extends StatefulWidget {
@@ -156,7 +155,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         _notificationsEnabled = value;
                       });
                     },
-                    activeColor: ThemeConfig.primaryPurple,
+                    activeThumbColor: ThemeConfig.primaryPurple,
                   ),
                   const Divider(height: 1),
                   SwitchListTile(
@@ -168,7 +167,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         _focusModeAutoStart = value;
                       });
                     },
-                    activeColor: ThemeConfig.primaryPurple,
+                    activeThumbColor: ThemeConfig.primaryPurple,
                   ),
                 ],
               ),

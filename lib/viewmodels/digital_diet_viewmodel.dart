@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import '../models/digital_diet_model.dart';
-import '../models/screen_time_model.dart';
 
 /// ViewModel for digital diet coach
 class DigitalDietViewModel extends ChangeNotifier {

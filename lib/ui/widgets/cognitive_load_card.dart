@@ -141,7 +141,7 @@ class CognitiveLoadCard extends StatelessWidget {
                   ],
                 ),
               );
-            }).toList(),
+            }),
           ],
         ),
       ),

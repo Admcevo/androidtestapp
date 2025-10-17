@@ -3,7 +3,7 @@ import 'package:path/path.dart';
 import '../../models/cognitive_load_model.dart';
 import '../../models/notification_model.dart';
 import '../../models/focus_session_model.dart';
-import '../../models/screen_time_model.dart';
+import '../../models/digital_diet_model.dart';
 
 /// SQLite database helper for local data persistence
 class DatabaseHelper {
